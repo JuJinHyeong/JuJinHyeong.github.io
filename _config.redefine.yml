@@ -158,10 +158,10 @@ home_banner:
     # Social links
     links:
       github: https://github.com/JuJinHyeong # your GitHub URL
-      instagram: # your Instagram URL
+      instagram: https://www.instagram.com/jujh97/ # your Instagram URL
       zhihu:  # your ZhiHu URL
       twitter:  # your twitter URL
-      email:  # your email
+      email: jujh97@hanamil.net # your email
       # ...... # you can add more
     # Social links with QRcode drawers
     qrs:
