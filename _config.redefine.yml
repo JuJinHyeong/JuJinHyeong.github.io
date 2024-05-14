@@ -349,8 +349,8 @@ comment:
       region: # Twikoo region. can be empty
     # Giscus comment system. See https://giscus.app/
     giscus:
-      repo: giscus # Github repository name e.g. EvanNotFound/hexo-theme-redefine
-      repo_id: 800372838 # Github repository id
+      repo: JuJinHyeong/giscus # Github repository name e.g. EvanNotFound/hexo-theme-redefine
+      repo_id: R_kgDOL7S4Zg # Github repository id
       category: Announcements # Github discussion category
       category_id: DIC_kwDOL7S4Zs4CfWOr # Github discussion category id
       mapping: pathname # Which value to use as the unique identifier for the page. e.g. pathname, url, title, og:title. DO NOT USE og:title WITH PJAX ENABLED since pjax will not update og:title when the page changes
