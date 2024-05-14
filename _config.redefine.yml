@@ -25,7 +25,7 @@ defaults:
   # Favicon
   favicon: /images/ditvee_logo.png
   # Site logo
-  logo: /images/ditvee_logo.png
+  logo: /images/bug.svg
   # Site avatar
   avatar: /images/dittoeevee.png
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
