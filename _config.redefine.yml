@@ -113,8 +113,8 @@ home_banner:
   style: fixed # static or fixed
   # Home banner image
   image: 
-    light: images/pastel-blue.png # light mode
-    dark: images/pastel_day.jpg # dark mode
+    light: images/pastel-day.png # light mode
+    dark: images/pastel-day.jpg # dark mode
   # Home banner title
   title: cout << Hello World << endl;
   # Home banner subtitle
