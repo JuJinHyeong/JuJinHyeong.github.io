@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "node config-generator.js && hexo generate",
     "clean": "hexo clean",
-    "deploy": "node config-generator.js && git add . && git commit -m \"deploy\" && git push && hexo generate && hexo deploy",
+    "deploy": "node config-generator.js && hexo generate && hexo deploy",
     "server": "node config-generator.js && hexo server"
   },
   "hexo": {
