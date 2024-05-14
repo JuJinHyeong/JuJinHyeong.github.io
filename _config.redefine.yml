@@ -23,11 +23,11 @@ info:
 # Docs: https://redefine-docs.ohevan.com/basic/defaults
 defaults:
   # Favicon
-  favicon: /images/ditvee_logo.png
+  favicon: https://raw.githubusercontent.com/JuJinHyeong/JuJinHyeong.github.io/gh-pages/images/ditvee_logo.png
   # Site logo
   logo: 
   # Site avatar
-  avatar: /images/dittoeevee.png
+  avatar: https://raw.githubusercontent.com/JuJinHyeong/JuJinHyeong.github.io/gh-pages/images/dittoeevee.png
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
