@@ -25,7 +25,7 @@ defaults:
   # Favicon
   favicon: /images/ditvee_logo.png
   # Site logo
-  logo: /images/ditvee_logo.png
+  logo: 
   # Site avatar
   avatar: /images/dittoeevee.png
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
@@ -39,7 +39,7 @@ colors:
   # Secondary color (TBD)
   secondary:
   # Default theme mode initial value (will be overwritten by prefer-color-scheme)
-  default_mode: dark # light, dark
+  default_mode: light # light, dark
 # COLORS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -131,7 +131,7 @@ home_banner:
     smart_backspace: true # Whether to smart backspace
   # Color of home banner text
   text_color: 
-    light: "#fff" # light mode
+    light: "#999" # light mode
     dark: "#d1d1b6" # dark mode
   # Specific style of the text
   text_style: 
