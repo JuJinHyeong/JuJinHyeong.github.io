@@ -11,7 +11,7 @@
 # Docs: https://redefine-docs.ohevan.com/basic/info
 info:
   # Site title
-  title: Ditvee Tech Blog
+  title: Ditvee Techlog
   # Author name
   author: Ditvee
   # Site URL
@@ -120,7 +120,7 @@ home_banner:
   # Home banner subtitle
   subtitle:
     text: ["Welcome.", "Have a nice day."] # subtitle text, array
-    hitokoto:  # 一言配置
+    hitokoto:
       enable: false # Whether to enable hitokoto
       api: https://v1.hitokoto.cn # API URL, can add types, see https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B-%E5%8F%82%E6%95%B0
     typing_speed: 100 # Typing speed (ms)
@@ -131,7 +131,7 @@ home_banner:
     smart_backspace: true # Whether to smart backspace
   # Color of home banner text
   text_color: 
-    light: "#999" # light mode
+    light: "#FFF" # light mode
     dark: "#d1d1b6" # dark mode
   # Specific style of the text
   text_style: 
@@ -152,12 +152,12 @@ home_banner:
   # Home banner social links
   social_links:
     # Whether to enable
-    enable: false
+    enable: true
     # Social links style
     style: default # default, reverse, center
     # Social links
     links:
-      github:  # your GitHub URL
+      github: https://github.com/JuJinHyeong # your GitHub URL
       instagram: # your Instagram URL
       zhihu:  # your ZhiHu URL
       twitter:  # your twitter URL
@@ -323,9 +323,9 @@ articles:
 # Docs: https://redefine-docs.ohevan.com/posts/comment
 comment:
   # Whether to enable comment
-  enable: false
+  enable: true
   # Comment system
-  system: waline # waline, gitalk, twikoo, giscus
+  system: gitalk # waline, gitalk, twikoo, giscus
   # System configuration
   config:
     # Waline comment system. See https://waline.js.org/
@@ -337,11 +337,11 @@ comment:
       turnstileKey: # Turnstile key. See https://waline.js.org/reference/client/props.html#turnstilekey
     # Gitalk comment system. See https://github.com/gitalk/gitalk
     gitalk:
-      clientID: # GitHub Application Client ID
-      clientSecret: # GitHub Application Client Secret
-      repo: # GitHub repository
-      owner: # GitHub repository owner
-      proxy: # GitHub repository proxy
+      clientID: ${GITALK_CLIENT_ID} # GitHub Application Client ID
+      clientSecret: ${GITALK_CLIENT_SECRET} # GitHub Application Client Secret
+      repo: JuJinHyeong.github.io # GitHub repository
+      owner: JuJinHyeong # GitHub repository owner
+      proxy: JuJinHyeong # GitHub repository proxy
     # Twikoo comment system. See https://twikoo.js.org/
     twikoo:
       version: 1.6.10 # Twikoo version, do not modify if you dont know what it is

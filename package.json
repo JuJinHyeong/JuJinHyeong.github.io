@@ -5,13 +5,14 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "git add . && git commit -m \"deploy\" && git push && hexo generate && hexo deploy",
-    "server": "hexo server"
+    "deploy": "node config-generator.js && git add . && git commit -m \"deploy\" && git push && hexo generate && hexo deploy",
+    "server": "node config-generator.js && hexo server"
   },
   "hexo": {
     "version": "7.2.0"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "hexo": "^7.0.0",
     "hexo-deployer-git": "^4.0.0",
     "hexo-generator-archive": "^2.0.0",
@@ -24,6 +25,7 @@
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0",
-    "hexo-theme-redefine": "^2.6.1"
+    "hexo-theme-redefine": "^2.6.1",
+    "js-yaml": "^4.1.0"
   }
 }
