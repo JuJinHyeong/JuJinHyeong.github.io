@@ -23,11 +23,11 @@ info:
 # Docs: https://redefine-docs.ohevan.com/basic/defaults
 defaults:
   # Favicon
-  favicon: https://raw.githubusercontent.com/JuJinHyeong/JuJinHyeong.github.io/gh-pages/images/ditvee_logo.png
+  favicon: /images/ditvee_logo.png
   # Site logo
   logo: 
   # Site avatar
-  avatar: https://raw.githubusercontent.com/JuJinHyeong/JuJinHyeong.github.io/gh-pages/images/dittoeevee.png
+  avatar: /images/dittoeevee.png
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -113,7 +113,7 @@ home_banner:
   style: fixed # static or fixed
   # Home banner image
   image: 
-    light: images/pastel_day.jpg # light mode
+    light: images/pastel-blue.png # light mode
     dark: images/pastel_day.jpg # dark mode
   # Home banner title
   title: cout << Hello World << endl;
