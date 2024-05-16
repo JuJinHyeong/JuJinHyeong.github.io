@@ -47,16 +47,16 @@ comments:
     theme                : # "github-light" (default), "github-dark"
     issue_term           : # "pathname" (default)
   giscus:
-    repo_id              : R_kgDOL7S4Zg # Shown during giscus setup at https://giscus.app
+    repo_id              : R_kgDOL7CAqQ # Shown during giscus setup at https://giscus.app
     category_name        : Announcements # Full text name of the category
-    category_id          : DIC_kwDOL7S4Zs4CfWOr # Shown during giscus setup at https://giscus.app
-    discussion_term      : "pathname" # "pathname" (default), "url", "title", "og:title"
+    category_id          : DIC_kwDOL7CAqc4CfZWJ # Shown during giscus setup at https://giscus.app
+    discussion_term      : pathname # "pathname" (default), "url", "title", "og:title"
     reactions_enabled    : 1 # '1' for enabled (default), '0' for disabled
-    theme                : "light" # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
+    theme                : preferred_color_scheme # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
     strict               : 0 # 1 for enabled, 0 for disabled (default)
     input_position       : "bottom" # "top", "bottom" # The comment input box will be placed above or below the comments
     emit_metadata        : 0 # 1 for enabled, 0 for disabled (default) # https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#imetadatamessage
-    lang                 : "en" # "en" (default)
+    lang                 : "ko" # "en" (default)
     lazy                 : "true" # true, false # Loading of the comments will be deferred until the user scrolls near the comments container.
   staticman:
     branch               : # "master"
