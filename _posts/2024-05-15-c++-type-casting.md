@@ -1,5 +1,6 @@
 ---
 title: "C++ 타입 캐스팅"
+excerpt: "C++의 타입 캐스팅에 대한 간단한 설명입니다."
 categories:
   - Back To Basics
 tags:
@@ -10,7 +11,9 @@ tags:
   - casting
 ---
 > ! 틀린 내용이 있을 수 있습니다. 틀린 내용이 있다면 댓글 부탁드립니다.
-{: .notice--danger}
+{: .notice--danger}  
+모든 테스트는 visual studio 22 에서 진행했습니다.
+{: .notice--info}
 
 # 개요
 c++에서 **타입을 다른 타입으로 변환**해주는 것은 캐스팅이라고 한다.  
