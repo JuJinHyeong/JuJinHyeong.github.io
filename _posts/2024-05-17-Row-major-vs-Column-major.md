@@ -2,7 +2,6 @@
 layout: single
 title: "Row Major vs Column Major"
 excerpt: "행렬 저장하는 방식에 대해서 정리하는 글입니다."
-toc: true
 categories:
   - Back To Basics
 tags:
