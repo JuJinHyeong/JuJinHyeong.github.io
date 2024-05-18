@@ -329,8 +329,13 @@ int main()
 ```
 
 ## 참고
-[마이크로소프트 - 형변환](https://learn.microsoft.com/ko-kr/cpp/cpp/casting-operators?view=msvc-170)  
-[마이크로소프트 - RTTI](https://learn.microsoft.com/ko-kr/cpp/cpp/run-time-type-information?view=msvc-170)  
-[마이크로소프트 - 문자 리터럴](https://learn.microsoft.com/ko-kr/cpp/cpp/string-and-character-literals-cpp?view=msvc-170)  
-[마이크로소프트 - 숫자 리터럴](https://learn.microsoft.com/ko-kr/cpp/cpp/numeric-boolean-and-pointer-literals-cpp?view=msvc-170)  
-[마이크로소프트 - 사용자 정의 리터럴](https://learn.microsoft.com/ko-kr/cpp/cpp/user-defined-literals-cpp?view=msvc-170)
+[microsoft Learn - casting](https://learn.microsoft.com/ko-kr/cpp/cpp/casting-operators?view=msvc-170)  
+[microsoft Learn - static_cast](https://learn.microsoft.com/en-us/cpp/cpp/static-cast-operator?view=msvc-170)  
+[cpp reference - static_cast](https://en.cppreference.com/w/cpp/language/static_cast)  
+[microsoft Learn - dynamic_cast](https://learn.microsoft.com/en-us/cpp/cpp/dynamic-cast-operator?view=msvc-170)  
+[microsoft Learn - reinterpret_cast](https://learn.microsoft.com/en-us/cpp/cpp/reinterpret-cast-operator?view=msvc-170)  
+[microsoft Learn - const_cast](https://learn.microsoft.com/en-us/cpp/cpp/const-cast-operator?view=msvc-170)  
+[microsoft Learn - RTTI](https://learn.microsoft.com/ko-kr/cpp/cpp/run-time-type-information?view=msvc-170)  
+[microsoft Learn - string literals](https://learn.microsoft.com/ko-kr/cpp/cpp/string-and-character-literals-cpp?view=msvc-170)  
+[microsoft Learn - numeric literals](https://learn.microsoft.com/ko-kr/cpp/cpp/numeric-boolean-and-pointer-literals-cpp?view=msvc-170)  
+[microsoft Learn - user defined literals](https://learn.microsoft.com/ko-kr/cpp/cpp/user-defined-literals-cpp?view=msvc-170)
