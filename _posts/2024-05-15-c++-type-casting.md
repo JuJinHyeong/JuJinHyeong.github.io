@@ -1,6 +1,6 @@
 ---
 title: "[C++] 타입 캐스팅"
-excerpt: "C++의 타입 캐스팅에 대한 설명입니다."
+excerpt: "c++의 타입 캐스팅에 대한 설명입니다."
 categories:
   - Back To Basics
 tags:

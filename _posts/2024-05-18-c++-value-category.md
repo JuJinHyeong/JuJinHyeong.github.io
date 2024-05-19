@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "c++ value category ( lvalue vs rvalue )"
+title: "[C++] value category ( lvalue vs rvalue )"
 excerpt: "c++의 value category를 정리하는 글입니다."
 categories:
   - Back To Basics
