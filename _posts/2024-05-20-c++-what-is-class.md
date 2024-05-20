@@ -11,7 +11,7 @@ tags:
 ---
 ! 틀린 내용이 있을 수 있습니다. 틀린 내용이 있다면 댓글 부탁드립니다.
 {: .notice--danger}  
-모든 테스트는 visual studio 22 에서 진행했습니다.
+모든 테스트는 visual studio 22 (v143) 으로 진행했습니다.
 {: .notice--info}
 
 ## 개요
