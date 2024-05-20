@@ -60,7 +60,7 @@ class member들을 정의한다.
    자동으로 생성해주는 함수들이다. 종류로는 
    `default constructor`, `destructor`, `copy constructor`, `copy assign operator`, `move constructor`, `move assign operator` 이렇게 6개가 있다.  
 2. **member function**  
-   static function, member function 두 가지로 나뉜다. 함수이다.
+   static function, member function 두 가지로 나뉜다.
 3. **data members**  
    static data, member data 두 가지로 나뉜다. 데이터 정의하듯 사용한다.
 4. **nested class**  
