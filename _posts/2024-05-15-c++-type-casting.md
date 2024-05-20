@@ -7,6 +7,7 @@ tags:
   - c++
   - opeartor
   - casting
+  - syntax
 ---
 > ! 틀린 내용이 있을 수 있습니다. 틀린 내용이 있다면 댓글 부탁드립니다.
 {: .notice--danger}  
@@ -419,14 +420,14 @@ int main()
 ```
 
 ## 참고
-[microsoft Learn - casting](https://learn.microsoft.com/ko-kr/cpp/cpp/casting-operators?view=msvc-170)  
-[microsoft Learn - static_cast](https://learn.microsoft.com/en-us/cpp/cpp/static-cast-operator?view=msvc-170)  
+[Microsoft Learn - casting](https://learn.microsoft.com/ko-kr/cpp/cpp/casting-operators?view=msvc-170)  
+[Microsoft Learn - static_cast](https://learn.microsoft.com/en-us/cpp/cpp/static-cast-operator?view=msvc-170)  
 [cpp reference - static_cast](https://en.cppreference.com/w/cpp/language/static_cast)  
-[microsoft Learn - dynamic_cast](https://learn.microsoft.com/en-us/cpp/cpp/dynamic-cast-operator?view=msvc-170)  
+[Microsoft Learn - dynamic_cast](https://learn.microsoft.com/en-us/cpp/cpp/dynamic-cast-operator?view=msvc-170)  
 [cpp reference - dynamic_cast](https://en.cppreference.com/w/cpp/language/dynamic_cast)  
-[microsoft Learn - reinterpret_cast](https://learn.microsoft.com/en-us/cpp/cpp/reinterpret-cast-operator?view=msvc-170)  
-[microsoft Learn - const_cast](https://learn.microsoft.com/en-us/cpp/cpp/const-cast-operator?view=msvc-170)  
-[microsoft Learn - RTTI](https://learn.microsoft.com/ko-kr/cpp/cpp/run-time-type-information?view=msvc-170)  
-[microsoft Learn - string literals](https://learn.microsoft.com/ko-kr/cpp/cpp/string-and-character-literals-cpp?view=msvc-170)  
-[microsoft Learn - numeric literals](https://learn.microsoft.com/ko-kr/cpp/cpp/numeric-boolean-and-pointer-literals-cpp?view=msvc-170)  
-[microsoft Learn - user defined literals](https://learn.microsoft.com/ko-kr/cpp/cpp/user-defined-literals-cpp?view=msvc-170)
+[Microsoft Learn - reinterpret_cast](https://learn.microsoft.com/en-us/cpp/cpp/reinterpret-cast-operator?view=msvc-170)  
+[Microsoft Learn - const_cast](https://learn.microsoft.com/en-us/cpp/cpp/const-cast-operator?view=msvc-170)  
+[Microsoft Learn - RTTI](https://learn.microsoft.com/ko-kr/cpp/cpp/run-time-type-information?view=msvc-170)  
+[Microsoft Learn - string literals](https://learn.microsoft.com/ko-kr/cpp/cpp/string-and-character-literals-cpp?view=msvc-170)  
+[Microsoft Learn - numeric literals](https://learn.microsoft.com/ko-kr/cpp/cpp/numeric-boolean-and-pointer-literals-cpp?view=msvc-170)  
+[Microsoft Learn - user defined literals](https://learn.microsoft.com/ko-kr/cpp/cpp/user-defined-literals-cpp?view=msvc-170)
