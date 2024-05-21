@@ -173,11 +173,10 @@ class D : public B { };
    int&& r2 = std::move(x);
    ```
 4. **void 캐스팅**  
-   `target-type`이 `void` 인 경우 표현식의 값을 계산하고 결과값을 버린다.  
+   `target-type`이 `void` 인 경우 표현식의 값을 계산하고 결과값을 버린다. ( 명시적으로 사용하지 않겠다고 선언할 때 사용하는 듯 하다 )  
    ```cpp
    int x = 5;
-   void* ptr = &x;
-   int* pi = static_cast<int*>(ptr);
+   static_cast<void>(x);
    ```
 5. **숫자 타입 캐스팅**  
    `enum`, `int` 등과 같은 정수타입끼리는 캐스팅이 가능하다.
@@ -430,4 +429,5 @@ int main()
 [Microsoft Learn - RTTI](https://learn.microsoft.com/ko-kr/cpp/cpp/run-time-type-information?view=msvc-170)  
 [Microsoft Learn - string literals](https://learn.microsoft.com/ko-kr/cpp/cpp/string-and-character-literals-cpp?view=msvc-170)  
 [Microsoft Learn - numeric literals](https://learn.microsoft.com/ko-kr/cpp/cpp/numeric-boolean-and-pointer-literals-cpp?view=msvc-170)  
-[Microsoft Learn - user defined literals](https://learn.microsoft.com/ko-kr/cpp/cpp/user-defined-literals-cpp?view=msvc-170)
+[Microsoft Learn - user defined literals](https://learn.microsoft.com/ko-kr/cpp/cpp/user-defined-literals-cpp?view=msvc-170)  
+[Stackoverflow - why use void cast](https://stackoverflow.com/questions/34288844/what-does-casting-to-void-really-do)

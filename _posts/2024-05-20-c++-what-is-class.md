@@ -226,6 +226,99 @@ int main() {
 }
 ```
 
+## 메모리 레이아웃
+class의 메모리 레이아웃은 컴파일러마다 다르게 구현되어있다. visual studio (v143) 컴파일러 기준으로 설명하도록 하겠다.
+{: .notice--info}
+
+### align
+class의 메모리는 하나의 메모리의 가장 큰 변수를 기준으로 align 된다. 변수마다 **align 할 크기의 메모리 중 남는 곳에 다 담을 수 있으면 담고 아니면 넘긴다**.  
+
+아래는 예시이다.
+```cpp
+class Test {
+public:
+    int a;
+    double b;
+    float f;
+    char c;
+    void Func() {}
+    static int s;
+};
+```
+1. 가장 큰 값은 double로 8byte이다.
+2. int a 가 4byte를 채워서 남은 크기는 4byte이다.
+3. double은 8byte이므로 다음 align 으로 넘겨서 채운다.
+4. float f 가 4byte로 채우고 남는 4byte에 char 가 들어갈 수 있으므로 5btye만큼 채워진다.
+5. 남은 3byte는 사용하지 않는다.
+6. 총 메모리 크기는 24byte이다.
+
+![Test-Memory-Layout]({{ site.url }}{{ site.baseurl }}/assets/images/memory_layout_Test.png){: .align-center}
+
+
+다른 예시다.
+```cpp
+class Test2 {
+public:
+    char c[4];
+    void Func() {}
+    static int s;
+};
+```
+1. 가장 큰 값은 char로 1byte이다.
+2. c[4]로 4개가 하나씩 들어간다.
+3. 총 크기는 4byte이다.
+
+![Test2-Memory-Layout]({{ site.url }}{{ site.baseurl }}/assets/images/memory_layout_Test2.png){: .align-center}
+
+align 옵션을 넣어서 몇바이트로 align 하겠다고 컴파일러에게 알려줄 수도 있다. ( 이는 성능상 문제가 있을 수 있으므로 조심해야한다. )
+```cpp
+class alignas(2) Test2 {
+public:
+    char c[4];
+    void Func() {}
+    static int s;
+};
+```
+1. 가장 큰 값은 char로 1byte지만 2byte로 align 한다고 했으므로 2byte로 align 한다.
+2. c[4] 가 2 / 2 쪼개져서 들어간다.
+3. 총 크기는 4byte이다.
+
+![Test2-Memory-Layout-align]({{ site.url }}{{ site.baseurl }}/assets/images/memory_layout_Test2_align.png){: .align-center}
+
+### 함수 / static 변수
+#### 고민
+함수랑 static 변수는 어디갔을까?
+
+앞의 예제들에는 전부 `void Func() {}` 함수와 `static int s;` 가 존재하는데 메모리 레이아웃에서는 눈 씻고 찾아봐도 보이지 않는다.
+
+#### 멤버함수
+멤버함수는 개체마다 존재하는 것이 아니라 일반 함수에서 `this`를 숨겨진 매개변수로 받는 함수이다. ( python class 맴버함수를 생각하면 이해가 편할 것이다 )
+
+> 즉, 멤버함수도 결국 프로그램 전체에서 하나만 존재하고, code 영역에 존재하게 된다. 그래서 **실제로는 함수는 class 안에 메모리로 존재하지 않는다.**
+
+이는 static 함수도 동일하게 적용된다.
+
+#### static 변수
+static 변수는 class 마다 하나만 존재하는 변수이다. 개체가 가질 수 있는 변수가 아니다.
+
+> 즉, **static 변수는 class 메모리 레이아웃에는 존재하지 않고 data 영역에 존재하게 된다.**
+
+### vptr
+class에는 가상함수를 위한 vtable을 가리키는 메모리가 있다. **가상함수를 사용하면 포인터 크기만큼 추가된다.**
+
+### empty
+비어있는 class의 크기는 0byte일까?
+
+**아니다. class의 크기가 0이면 존재하는 것이 아니게 되므로 1byte의 크기를 할당해준다.**
+```cpp
+class Empty {};
+
+void Test() {
+    Empty t;
+    cout << sizeof(t) << endl; // print 1
+}
+```
+
 ## class vs struct
 `class`와 `struct`는 본질적으로( 어셈블러 단에서 ) 차이가 전혀 없다. 하지만 단 한가지 다른 것은 **기본 접근제어자가 `class`는 `private`, `struct`는 `public` 이라는 것**이다.  
 
@@ -249,6 +342,11 @@ private:
 ```
 ![value-category]({{ site.url }}{{ site.baseurl }}/assets/images/struct_vs_class.png){: .align-center}
 위의 사진에서 볼 수 있듯 `class`와 `struct`가 **메모리 레이아웃에서 차이가 없는 것**을 확인할 수 있다.
+
+## 결론
+class의 정의부터 사용법, 접근제어, 메모리 레이아웃, struct와의 차이까지 알아봤다.
+
+class를 사용할 때 실제로 어떻게 작동하는지 알고 코딩하는 것은 중요할 것이다.
 
 ## 출처
 [Microsoft Learn - Classes](https://learn.microsoft.com/ko-kr/cpp/cpp/class-cpp?view=msvc-170)  
