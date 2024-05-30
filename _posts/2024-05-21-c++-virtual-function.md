@@ -104,6 +104,8 @@ vptr은 생성 당시 정해지므로 컴파일러는 **이 포인터의 실제 
 
 vtable은 **class 마다 존재하므로( 개체가 아니다! static 같은 class마다 존재하는 값이다 ) 같은 class를 가리키면 같은 vptr을 가진다.**
 
+아래의 예제로 vptr 의 값을 확인해보자.
+
 ```cpp
 void GetVptr() {
     Derived d;
@@ -218,6 +220,25 @@ cout << (long long)&d.c - (long long)&d << endl; // 32
     ```
     Base2 에서 Func3 은 첫번째 가상함수이므로 b2의 vptr로 가서 vtable의 첫번째 함수를 불러와서 실행한다.
 
+#### override
+`override` 키워드는 virtual function을 재정의 할 때 **"이 함수 재정의하는 거에요~"** 하고 알려주는 키워드이다. `override` 키워드가 들어가있는데 **재정의하는 것이 아니면 컴파일 에러를 낸다.**
+
+이 키워드는 되도록이면 사용하는 것이 좋다. 필자는 항상 const 나 c#의 out 등 무언가를 제한하는 키워드들은 적극적으로 사용하는 것을 추천한다. 언어단에서 제한해서 프로그래머의 실수를 줄이는 것은 매우 중요하다. ( 프로그래머도 사람이야! )
+{: .notice--info}
+
+```cpp
+class Base {
+public:
+    virtual void Foo() {};
+};
+
+class Derived : public Base {
+public:
+    virtual void Foo() override {};
+    virtual void Fooo() override {}; // error
+};
+```
+
 ## 순수가상함수( pure virtual function )
 ### 정의
 순수가상함수는 가상함수 중에 `=0` 이라는 **순수지시자( pure specifier )를 통해서 정의된 가상함수**이다.
@@ -233,12 +254,12 @@ cout << (long long)&d.c - (long long)&d << endl; // 32
 ```cpp
 class Abstract {
 public:
-	virtual void Func() = 0;
-	int a;
+    virtual void Func() = 0;
+    int a;
 };
 
 void Func() {
-	Abstract b; // error
+    Abstract b; // error
 }
 ```
 
@@ -252,44 +273,44 @@ void Func() {
 ```cpp
 class Shape {
 public:
-	struct Point {
-		int x = 0, y = 0;
-	};
-	virtual void Draw() = 0;
+    struct Point {
+        int x = 0, y = 0;
+    };
+    virtual void Draw() = 0;
 };
 
 class Triangle : public Shape {
 public:
-	virtual void Draw() override {
-		// draw triangle
-	}
-	Point p[3];
+    virtual void Draw() override {
+        // draw triangle
+    }
+    Point p[3];
 };
 
 class Square : public Shape {
 public:
-	virtual void Draw() override {
-		// draw triangle
-	}
-	Point p[4];
+    virtual void Draw() override {
+        // draw triangle
+    }
+    Point p[4];
 };
 
 void DrawCall() {
-	Shape* s[10] = { 0 };
-	for (int i = 0; i < 10; i++) {
-		int a;
-		cin >> a;
-		if (a % 1) {
-			s[i] = new Triangle();
-		}
-		else {
-			s[i] = new Square();
-		}
-	}
+    Shape* s[10] = { 0 };
+    for (int i = 0; i < 10; i++) {
+        int a;
+        cin >> a;
+        if (a % 1) {
+            s[i] = new Triangle();
+        }
+        else {
+            s[i] = new Square();
+        }
+    }
     
-	for (int i = 0; i < 10; i++) {
-		s[i]->Draw();
-	}
+    for (int i = 0; i < 10; i++) {
+        s[i]->Draw();
+    }
 }
 ```
 위와 같이 가상함수를 사용할 수도 있지만
@@ -298,45 +319,45 @@ void DrawCall() {
 ```cpp
 class Shape {
 public:
-	struct Point {
-		int x = 0, y = 0;
-	};
-	void Draw() {
-		// draw points
-	}
-	vector<Point> points;
+    struct Point {
+        int x = 0, y = 0;
+    };
+    void Draw() {
+        // draw points
+    }
+    vector<Point> points;
 };
 
 class Triangle : public Shape {
 public:
-	Triangle() {
-		// set Triangle points;
-	}
+    Triangle() {
+        // set Triangle points;
+    }
 };
 
 class Square : public Shape {
 public:
-	Square() {
-		// set Square points;
-	}
+    Square() {
+        // set Square points;
+    }
 };
 
 void DrawCall() {
-	Shape* s[10] = { 0 };
-	for (int i = 0; i < 10; i++) {
-		int a;
-		cin >> a;
-		if (a % 1) {
-			s[i] = new Triangle();
-		}
-		else {
-			s[i] = new Square();
-		}
-	}
+    Shape* s[10] = { 0 };
+    for (int i = 0; i < 10; i++) {
+        int a;
+        cin >> a;
+        if (a % 1) {
+            s[i] = new Triangle();
+        }
+        else {
+            s[i] = new Square();
+        }
+    }
 
-	for (int i = 0; i < 10; i++) {
-		s[i]->Draw();
-	}
+    for (int i = 0; i < 10; i++) {
+        s[i]->Draw();
+    }
 }
 ```
 
