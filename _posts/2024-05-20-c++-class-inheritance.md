@@ -16,7 +16,7 @@ tags:
 {: .notice--info}
 
 ## 개요
-c++ 클래스의 상속에 대해서 사용방법과 주의해야할 점에 대해서 설명한다.
+c++ 클래스의 상속에 대해서 사용방법과 실제 메모리가 어떻게 되는지 대해서 설명한다.
 
 ## 상속이란
 ### 정의
@@ -38,7 +38,7 @@ class Derived : [virtual] [access-specifier] Base1,
 ```
 #### access-specifier
 `public, protected, private` 3가지 중 하나이다.  
-상속받은 class ( derived class )는 최대 access-specifier의 접근제어 수준을 가진다.
+상속받은 class ( derived class )는 가장 높은 access-specifier의 접근제어 수준을 가진다.
 
 **public -> protected -> private 순서로 접근제어 수준이 높아진다.**
 {: .notice--info}
@@ -88,7 +88,7 @@ Base class는 Derived class 보다 앞에 정의 되어있어야한다. **즉, B
 {: .notice--info}
 
 #### Ambiguous
-일반적으로 접근할 때 이름이 다르면 이름으로 접근하면 되지만 멤버의 이름이 같은 경우가 있다. 이 때는 `class::member` 로 접근해서 모호함을 해결할 수 있다.
+일반적으로 접근할 때 이름이 다르면 이름으로 접근하면 되지만 멤버의 이름이 같은 경우가 있다. 이럴 때는 정확하게 `class::member` 로 접근해서 모호함을 해결 할 수 있다.
 
 ```cpp
 class Base {
@@ -98,15 +98,78 @@ public:
 
 class Derived : public Base {
 public:
-	void test() {
-		a = 10; // ambiguous
-		Base::a = 10; // not ambiguous
-		this->a = 10; // not ambiguous
-	}
-private:
 	int a;
 };
+
+class Derived2 : public Derived {
+public:
+	void test() {
+		a = 10; // ambiguous. Base::a or Derived::a?
+      Base::a = 10;
+      Derived::a = 12;
+	}
+};
 ```
+
+#### 메모리 구조
+c++ 표준에서는 클래스를 상속 받을 때의 메모리 구조를 보장하고 있지 않다. 구현의 문제이고, 컴파일러마다 다르게 작동할 수 있다.
+{: .notice--info}
+
+일반적으로는 Base class가 Derived class 앞에 존재하는 형식으로 구현되어있다.
+
+```cpp
+class Base {
+public:
+	virtual ~Base() {};
+	int a;
+};
+
+class Derived : public Base {
+public:
+	int b;
+};
+
+class Derived2 : public Derived {
+public:
+	int c;
+};
+```
+
+위와 같은 구조에서 Derived2를 만들기 위해서 Base는 맨 위에 생성되고 그 밑에 Derived, Derived2 순서로 생성된다.
+
+![memory-layout]({{ site.url }}{{ site.baseurl }}/assets/images/class-inheritance-derived2-memory-layout.png){: .align-center}
+
+위의 사진처럼 align이 8byte로 고정되고 뒤로 4byte 씩 추가되는 것을 볼 수 있다.
+
+##### vptr의 위치
+
+`visual studio 22(v143)`에서는 vptr 의 위치가 항상 앞으로 고정된다.
+
+예를 들어서 이런 경우를 보자.
+
+```cpp
+class Base {
+public:
+	int a;
+};
+
+class Derived : public Base {
+public:
+	virtual ~Derived() {};
+	int b;
+};
+
+class Derived2 : public Derived {
+public:
+	int c;
+};
+```
+
+이렇게 되어있다면, 처음 생각드는 것은 `Base::a / Derived::vptr , Derived::b / Dervied2::c` 이렇게 되어있는 것을 생각할 것이다. 하지만 실제로 visual studio 에서는 `Derived::ptr`이 제일 앞에 있고 `Base::a` 부터 만들어진다.
+
+![memory-layout2]({{ site.url }}{{ site.baseurl }}/assets/images/class-inheritance-derived2-memory-layout2.png){: .align-center}
+
+사진처럼 맨 앞에 Derived::ptr이 있고, 뒤에 align 되어있는 것을 확인할 수 있다.
 
 ### 다중 상속 ( multiple inheritance )
 
@@ -171,8 +234,15 @@ class DerivedD : virtual public Derived1, virtual public Derived2, public Derive
 ```
 이런 구조라면 Base는 2개가 만들어진다.
 
+이론은 이런데... 실제로 메모리 구조를 확인해보면 각각 생성된다. 왜 그런지는 잘 모르겠습니다. 댓글 부탁드립니다.
+{: .notice--danger}
+
+
 #### Ambiguous
 단일 상속과 비슷하게 모호한 멤버로 접근할 때 `Parent::Base::member` 처럼 정확한 클래스 위치로 접근하면 모호함을 해결할 수 있다. 
+
+## 결론
+이 포스팅으로 **class를 상속할 때 어떻게 하는지, 상속의 종류, 각 상속의 특징에 대해서 알아보았다.** 이 외에도 더 많은 상속에 관련된 자세한 내용이 있으나 짧은 식견 이슈로 더 자세한 내용은 다른 정리된 내용을 참고하면 좋을 거 같다.
 
 ## 참조
 [Microsoft Learn - Inheritance Overview](https://learn.microsoft.com/en-us/cpp/cpp/inheritance-cpp?view=msvc-170)  
